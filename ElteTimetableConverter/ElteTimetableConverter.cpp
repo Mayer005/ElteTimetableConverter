@@ -5,6 +5,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::string as = "asd";
+    as.append("\nAs");
+    std::cout << as;
 }
 

@@ -20,8 +20,6 @@ struct Date {
 };
 
 
-
-
 struct Lesson {
 	Date startDate;
 	Date endDate;
@@ -32,10 +30,12 @@ struct Lesson {
 	std::string description;
 	std::string location;
 
-	friend std::ostream& operator<<(std::ostream& os, Lesson& const l) {
+	friend std::ostream& operator<<(std::ostream& os, Lesson& l) {
 		os << l.subject << "," << l.startDate << "," << l.startTime << "," << l.endDate << "," << l.endTime << "," << l.c_allDayEvent << "," << l.description << "," << l.location << std::endl;
 		return os;
 	}
+
+	void clear();
 
 };
 

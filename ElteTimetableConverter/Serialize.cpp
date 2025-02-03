@@ -15,7 +15,7 @@ bool ends_with(const std::string& str, const std::string& suffix) {
 
 
 std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& filename) const {
-	std::vector<Lesson> Lessons;
+	std::vector<Lesson> lessons;
 	std::ifstream input(filename);
 	std::string line;
 
@@ -26,6 +26,8 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 	std::string year;
 	std::string month;
 	std::string day;
+	Lesson lesson;
+
 
 	while(std::getline(input, line)) {
 		if (line.empty()) {
@@ -33,7 +35,7 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 		}
 
 		std::stringstream ss(line);
-		Lesson lesson;
+		
 
 		if (ends_with(line, "(BSc)")) {
 			std::getline(ss, year, '.');
@@ -54,12 +56,27 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 			std::getline(ss, lesson.subject, '\n');
 		}
 		else if ((line.rfind("Seminar") != std::string::npos) || (line.rfind("Lecture") != std::string::npos)) {
-
+			std::string del;
+			std::getline(ss, del, '\t');
+			std::getline(ss, lesson.description, '\n');
 		}
-		
+		else if (line.length() < 5) {
+			continue;
+		}
+		else {
+			std::string del;
+			std::string add;
+			std::getline(ss, del, '\t');
+			std::getline(ss, lesson.location, '\t');
+			std::getline(ss, add, '\n');
 
+			lesson.description.append("\n");
+			lesson.description.append(add);
 
+			lessons.push_back(lesson);
+			lesson.clear();
+		}
 	}
 
-	return Lessons;
+	return lessons;
 }
