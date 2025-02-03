@@ -2,10 +2,14 @@
 #define SERIALIZE
 
 #include <string>
+#include <vector>
+#include "Lesson.h"
 
 class Serializer {
 public:
-	void deserializeFromTxt(const std::string& filename);
+	Serializer() {};
+
+	void deserializeFromTxtToLessons(const std::string& filename, std::vector<Lesson>);
 	void serializeToCsV();
 
 };
