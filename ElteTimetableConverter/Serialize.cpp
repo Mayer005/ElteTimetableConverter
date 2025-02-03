@@ -21,13 +21,10 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 
 	//Skip the first row.
 	std::getline(input, line);
-
-
 	std::string year;
 	std::string month;
 	std::string day;
 	Lesson lesson;
-
 
 	while(std::getline(input, line)) {
 		if (line.empty()) {
@@ -79,4 +76,18 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 	}
 
 	return lessons;
+}
+
+
+void Serializer::serializeLessonToCsV(std::vector<Lesson>& lessons) {
+	std::ofstream output("timetable.csv", std::ios::app);
+	if (!output) {
+		std::cerr << "The file timetable.csv (output file) can not be open" << std::endl;
+	}
+
+	for (Lesson a : lessons) {
+		output << a;
+	}
+
+	output.close();
 }
