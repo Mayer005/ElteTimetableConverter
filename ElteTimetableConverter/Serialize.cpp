@@ -79,13 +79,13 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 }
 
 
-void Serializer::serializeLessonToCsV(std::vector<Lesson>& lessons) {
-	std::ofstream output("timetable.csv", std::ios::app);
+void Serializer::serializeLessonToCsV(const std::vector<Lesson>& lessons) const {
+	std::ofstream output("timetable.csv");
 	if (!output) {
 		std::cerr << "The file timetable.csv (output file) can not be open" << std::endl;
 	}
 
-	for (Lesson a : lessons) {
+	for (const Lesson& a : lessons) {
 		output << a;
 	}
 

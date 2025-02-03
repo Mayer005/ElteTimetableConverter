@@ -11,7 +11,7 @@ class Serializer {
 public:
 
 	std::vector<Lesson> deserializeFromTxtToLessons(const std::string& filename) const;
-	void serializeLessonToCsV(std::vector<Lesson>& const lessons);
+	void serializeLessonToCsV(const std::vector<Lesson>& lessons) const;
 
 };
 
