@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ElteTimetableConverter.cpp" />
-    <ClCompile Include="Lesson.cpp" />
+    <ClCompile Include="Serialize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lesson.h" />

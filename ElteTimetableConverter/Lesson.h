@@ -19,39 +19,21 @@ struct Date {
 
 };
 
-struct Time {
-	int hours;
-	int minutes;
-
-	Time() : hours(-1), minutes(-1) {}
-	Time(int h, int m) : hours(h), minutes(m) {}
-
-	friend std::ostream& operator<<(std::ostream& os, const Time& t) {
-		os << t.hours << ":" << t.minutes;
-		return os;
-	}
-};
 
 
-class Lesson {
-private:
-	Date _startDate;
-	Date _endDate;
-	Time _startTime;
-	Time _endTime;
 
-	std::string _subject;
-	const std::string _c_allDayEvent = "FALSE";
-	std::string _description;
-	std::string _location;
+struct Lesson {
+	Date startDate;
+	Date endDate;
+	std::string startTime;
+	std::string endTime;
+	std::string subject;
+	const std::string c_allDayEvent = "FALSE";
+	std::string description;
+	std::string location;
 
-
-public:
-	Lesson(Date startD, Date endD, Time startT, Time endT, std::string sub, std::string desc, std::string loc) : _startDate(startD), _endDate(endD), _startTime(startT),
-		_endTime(endT), _subject(sub), _description(desc), _location(loc){}
-
-	friend std::ostream& operator<<(std::ostream& os, Lesson& l) {
-		os << l._subject << "," << l._startDate << "," << l._startTime << "," << l._endDate << "," << l._endTime << "," << l._c_allDayEvent << "," << l._description << "," << l._location << std::endl;
+	friend std::ostream& operator<<(std::ostream& os, Lesson& const l) {
+		os << l.subject << "," << l.startDate << "," << l.startTime << "," << l.endDate << "," << l.endTime << "," << l.c_allDayEvent << "," << l.description << "," << l.location << std::endl;
 		return os;
 	}
 

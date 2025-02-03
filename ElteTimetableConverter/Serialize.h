@@ -5,11 +5,13 @@
 #include <vector>
 #include "Lesson.h"
 
+bool ends_with(const std::string& str, const std::string& suffix);
+
 class Serializer {
 public:
 	Serializer() {};
 
-	void deserializeFromTxtToLessons(const std::string& filename, std::vector<Lesson>);
+	std::vector<Lesson> deserializeFromTxtToLessons(const std::string& filename) const;
 	void serializeToCsV();
 
 };
