@@ -6,6 +6,7 @@
 int main(int argc, char* argv[]){
     if (argc != 2) {
         std::cerr << "The use of the program is: csvtool <filename>" << std::endl;
+        return 1;
     }
 
     Serializer serializer;
@@ -16,6 +17,6 @@ int main(int argc, char* argv[]){
     lessons = serializer.deserializeFromTxtToLessons(filename);
     serializer.serializeLessonToCsV(lessons);
 
-
+    return 0;
 }
 
