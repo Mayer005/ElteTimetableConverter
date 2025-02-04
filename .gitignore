@@ -7,6 +7,9 @@
 # Ignore the build directory
 /build/
 
+# Ignore example csv
+*.csv
+
 # Ignore CMake generated files
 CMakeCache.txt
 CMakeFiles/

@@ -29,6 +29,11 @@ bool ends_with(const std::string& str, const std::string& suffix) {
 std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& filename) const {
 	std::vector<Lesson> lessons;
 	std::ifstream input(filename);
+
+	if (!input.is_open()) {
+		std::cerr << "Error: Could not open file " << filename << "Perhaps the .exe is not in the same folder with the txt." << std::endl;
+		return {}; //return an empty vector if the file could not be opened
+	}
 	std::string line;
 
 	//Skip the first row.
