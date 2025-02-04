@@ -31,7 +31,7 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 	std::ifstream input(filename);
 
 	if (!input.is_open()) {
-		std::cerr << "Error: Could not open file " << filename << "Perhaps the .exe is not in the same folder with the txt." << std::endl;
+		std::cerr << "Error: Could not open file. " << filename << "\nPerhaps the .exe is not in the same folder with the txt." << std::endl;
 		return {}; //return an empty vector if the file could not be opened
 	}
 	std::string line;
@@ -106,6 +106,11 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
  */
 void Serializer::serializeLessonToCsV(const std::vector<Lesson>& lessons) const {
 	std::ofstream output("timetable.csv", std::ios::out | std::ios::binary);
+	if (lessons.empty()) {
+		std::cerr << "The given vector is empty" << std::endl;
+		return;
+	}
+
 	if (!output) {
 		std::cerr << "The file timetable.csv (output file) can not be open" << std::endl;
 		return;
