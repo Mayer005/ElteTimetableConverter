@@ -6,7 +6,7 @@ can be a cumbersome process. To simplify this, I have developed a converter that
 ### On windows:
 **Step 1:** Download the .exe file from the ***Releases*** section and click on the .exe file to download it.
 
-**Step 2:** Copy your timetable from the ***GTK Inform system***. To do this, open GTK Inform, navigate to the timetable section, highlight the table, copy it, and then paste it into a ***.txt*** file and save it.
+**Step 2:** Copy your timetable from the ***GTK Inform system***. To do this, open GTK Inform, navigate to the timetable section, highlight the entire table including the header ('subject','time', etc.), copy it, and then paste it into a ***.txt*** file and save it.
 The ***.txt*** file should look like this:
 
 ![image](https://github.com/user-attachments/assets/a5cbc254-6330-4e3e-ba63-180fcb2bd259)
