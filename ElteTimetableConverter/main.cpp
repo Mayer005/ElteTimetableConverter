@@ -4,15 +4,15 @@
 
 
 int main(int argc, char* argv[]){
-    if (argc != 2) {
-        std::cerr << "The use of the program is: csvtool <filename>" << std::endl;
+    if (argc != 3 || std::string(argv[1]) != "csvtool") {
+        std::cerr << "The use of the program is: serialize csvtool <filename>" << std::endl;
         return 1;
     }
 
     Serializer serializer;
 
     std::vector<Lesson> lessons;
-    std::string filename = argv[1];
+    std::string filename = argv[2];
 
     lessons = serializer.deserializeFromTxtToLessons(filename);
     serializer.serializeLessonToCsV(lessons);

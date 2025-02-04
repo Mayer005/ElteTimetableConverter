@@ -5,6 +5,7 @@
 #include <iostream>
 
 
+
 bool ends_with(const std::string& str, const std::string& suffix) {
 	if (str.length() < suffix.length()) {
 		return false;
@@ -31,8 +32,10 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 			continue;
 		}
 
+
+		line.erase(std::remove(line.begin(), line.end(), ','), line.end());
+
 		std::stringstream ss(line);
-		
 
 		if (ends_with(line, "(BSc)")) {
 			std::getline(ss, year, '.');
@@ -67,7 +70,7 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 			std::getline(ss, lesson.location, '\t');
 			std::getline(ss, add, '\n');
 
-			lesson.description.append("\n");
+			lesson.description.append(": ");
 			lesson.description.append(add);
 
 			lessons.push_back(lesson);
@@ -80,14 +83,23 @@ std::vector<Lesson> Serializer::deserializeFromTxtToLessons(const std::string& f
 
 
 void Serializer::serializeLessonToCsV(const std::vector<Lesson>& lessons) const {
-	std::ofstream output("timetable.csv");
+	std::ofstream output("timetable.csv", std::ios::out | std::ios::binary);
 	if (!output) {
 		std::cerr << "The file timetable.csv (output file) can not be open" << std::endl;
+		return;
 	}
+
+
+	output << "\xEF\xBB\xBF";
+
+	output << "Subject,Start date,Start time,End Date,End Time,All Day Event,Description,Location" << std::endl;
+
 
 	for (const Lesson& a : lessons) {
 		output << a;
 	}
+
+	std::cout << "timetable.csv created succesfully." << std::endl;
 
 	output.close();
 }

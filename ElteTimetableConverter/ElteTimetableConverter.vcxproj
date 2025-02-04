@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ElteTimetableConverter.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Serialize.cpp" />
     <ClCompile Include="Lesson.cpp" />
   </ItemGroup>
