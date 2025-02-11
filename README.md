@@ -14,6 +14,7 @@ The ***.txt*** file should look like this:
 The first line of the ***.txt*** file should contain the column headers. These can be in English; it does not matter. If there are empty rows or rows that do not contain relevant information, you can leave them in the file—the program will ignore them. In the image, the parts marked with '********' represent either the course code or the lecture code, which can be any value.
 
 **Step 3:** Copy the ***.exe*** file into the same folder where the **.txt** file is located.
+
 **Step 4:** Open ***Command Prompt*** (cmd) from the folder. To do this, open the folder, double-click on the address bar, type ***cmd***, and press Enter.
 
 ![image](https://github.com/user-attachments/assets/43af698d-fbb2-4fd6-9b83-bb3ffc9c5707)
