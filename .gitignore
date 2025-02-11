@@ -65,6 +65,8 @@ bld/
 [Ll]ogs/
 teszt/
 build/
+ElteTimetableConverter/*.vcxproj
+ElteTimetableConverter/*.vcxproj.filters
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
